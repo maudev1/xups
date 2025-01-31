@@ -1,0 +1,16 @@
+{
+    "name": "dev/xups2",
+    "description": "Ai cli assistant based on groq api",
+    "autoload": {
+        "psr-4": {
+            "Dev\\Xups2\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "maudev-vgt",
+            "email": "mauricio@vgt.com.br"
+        }
+    ],
+    "require": {}
+}

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 consulta() {
-    php xups.php "$1"
+    php index.php "$1"
 }
 
 command=""
