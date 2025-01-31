@@ -17,8 +17,15 @@ if (count($argv) > 0) {
 
         if ($text != '') {
 
-            echo $xups->messaging($text);
+            $command = $xups->messaging($text);
 
+                $regex = '/```bash\n(.*?)\n```/s';
+
+                $codigoSemTags = preg_replace($regex, '$1',  $command);
+
+                echo $codigoSemTags."\n\n";
+
+               echo shell_exec($codigoSemTags);
 
         }
 
