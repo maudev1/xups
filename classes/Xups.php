@@ -10,9 +10,9 @@ class Xups
 
     public function __construct($mode = null)
     {
-        $this->groq_api_uri  = getenv('groq_api_uri');
+        $this->groq_api_uri = getenv('groq_api_uri');
         $this->groq_ai_model = getenv('groq_ai_model');
-        $this->groq_token =    getenv('groq_token');
+        $this->groq_token = getenv('groq_token');
 
         if (isset($mode)) {
             $this->mode = $mode;
@@ -45,7 +45,7 @@ class Xups
             "messages" => (array) [
                 (object) [
                     "role" => "system",
-                    "content" => "seja maneiro, use emojis, para geração de senhas mostre apenas o seguinte texto: ta ai meu nobre: senha"
+                    "content" => "seja maneiro, use emojis, para geração de senhas mostre apenas o seguinte texto seguido da senha: ta ai meu nobre: "
                 ]
             ],
             "temperature" => 0.5,
@@ -66,7 +66,6 @@ class Xups
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->groq_token,
         ]);
-        // curl_setopt($ch, CURLOPT_POSTFIELDS, '{"messages": [{"role": "user", "content": "' . $text . '"}], "model": "' . $this->groq_ai_model . '"}');
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($messages));
 
         $results = curl_exec($ch);
@@ -78,11 +77,11 @@ class Xups
         if (isset($response->choices[0])) {
             $last_chats[] = $response->choices[0]->message;
 
-            $last_chats   = json_encode($last_chats);
+            $last_chats = json_encode($last_chats);
 
-            file_put_contents($dir.'/last_chat.json',$last_chats, true);
+            file_put_contents($dir . '/last_chat.json', $last_chats, true);
 
-            return  $response->choices[0]->message->content;
+            return $response->choices[0]->message->content;
         }
 
 

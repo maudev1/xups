@@ -8,7 +8,11 @@ parse() {
 
 command=""
 
-echo "Fala Xamps?"
+
+alias=("diga:" "Fala Xamps?" "Fala comigo bb?" "fala meu filho:" "fala ai jovem:" "Chora criança:")
+random_alias=${alias[RANDOM % ${#alias[@]}]}
+
+echo "$random_alias"
 
 while true; do
     read -p "> " command
@@ -16,14 +20,6 @@ while true; do
     if [ "$command" == "sair" ]; then
         echo "Flw!"
         kill -SIGINT $$
-    fi
-
-    if [ "$command" == "superx" ]; then
-        mode="superx"
-    fi
-
-    if [ "$command" == "freex" ]; then
-        mode="freex"
     fi
 
     parse "$command"
