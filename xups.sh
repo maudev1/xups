@@ -1,7 +1,9 @@
 #!/bin/bash
 
-consulta() {
-    php index.php "$1"
+mode="freex"
+
+parse() {
+    php index.php "${mode}" "$1"
 }
 
 command=""
@@ -16,5 +18,13 @@ while true; do
         kill -SIGINT $$
     fi
 
-    consulta "$command"
+    if [ "$command" == "superx" ]; then
+        mode="superx"
+    fi
+
+    if [ "$command" == "freex" ]; then
+        mode="freex"
+    fi
+
+    parse "$command"
 done

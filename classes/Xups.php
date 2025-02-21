@@ -6,49 +6,57 @@ class Xups
     private $groq_token;
     private $groq_ai_model;
     private $groq_api_uri;
+    private $mode;
 
-
-    public function __construct()
+    public function __construct($mode = null)
     {
-        $this->groq_api_uri = getenv('groq_api_uri');
+        $this->groq_api_uri  = getenv('groq_api_uri');
         $this->groq_ai_model = getenv('groq_ai_model');
-        $this->groq_token = getenv('groq_token');
+        $this->groq_token =    getenv('groq_token');
+
+        if (isset($mode)) {
+            $this->mode = $mode;
+        } else if (!isset($this->mode)) {
+            $this->mode = "freex";
+        }
     }
+
 
     public function messaging($text)
     {
 
-        $response = $this->send_message($text);
-
-        if (isset($response->choices[0])) {
-            return $response->choices[0]->message->content;
+        if (!is_dir('history')) {
+            mkdir('history');
         }
 
-    }
+        $dir = 'history';
 
-    public function send_message($text)
-    {
+        if (is_file($dir . '/last_chat.json')) {
+            $last_chats = $dir . '/last_chat.json';
+        }
 
-        $data = (object) [
+        $last_chats = file_get_contents($last_chats, true);
+
+        $last_chats = json_decode($last_chats);
+
+        $last_chats[] = (object) ["role" => "user", "content" => "$text"];
+
+        $messages = (object) [
             "messages" => (array) [
                 (object) [
-                    "role"    => "system",
-                    "content" => "This chat is intended only for pure code, send only the code I ask for without comments or any other text that is not code"
-                ],
-                (object) [
-                    "role"    => "system",
-                    "content" => "I'm using the ubuntu operating system, use shell script to install dependencies or run routines"
-                ],
-                (object) [
-                    "role"    => "user",
-                    "content" => "$text"
+                    "role" => "system",
+                    "content" => "seja maneiro, use emojis, para geração de senhas mostre apenas o seguinte texto: ta ai meu nobre: senha"
                 ]
             ],
             "temperature" => 0.5,
-            "model"       => $this->groq_ai_model,
-            "stop"        => null,
-            "stream"      => false
+            "model" => $this->groq_ai_model,
+            "stop" => null,
+            "stream" => false
         ];
+
+        $mergedMessages = array_merge($messages->messages, $last_chats);
+
+        $messages->messages = $mergedMessages;
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->groq_api_uri . '/chat/completions');
@@ -59,13 +67,25 @@ class Xups
             'Authorization: Bearer ' . $this->groq_token,
         ]);
         // curl_setopt($ch, CURLOPT_POSTFIELDS, '{"messages": [{"role": "user", "content": "' . $text . '"}], "model": "' . $this->groq_ai_model . '"}');
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($messages));
 
-        $response = curl_exec($ch);
+        $results = curl_exec($ch);
 
         curl_close($ch);
 
-        return json_decode($response);
+        $response = json_decode($results);
+
+        if (isset($response->choices[0])) {
+            $last_chats[] = $response->choices[0]->message;
+
+            $last_chats   = json_encode($last_chats);
+
+            file_put_contents($dir.'/last_chat.json',$last_chats, true);
+
+            return  $response->choices[0]->message->content;
+        }
+
+
 
     }
 

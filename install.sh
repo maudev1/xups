@@ -1,11 +1,19 @@
 #!/bin/bash
 
-chmod +x xups.sh
+cd ..
 
-sudo cp xups.sh /usr/local/bin/
+sudo cp -r xups2 /usr/local/bin/
 
-sudo cp xups.php /usr/local/bin/
+sudo chmod +x "/usr/local/bin/xups2/xups.sh"
 
-alias xups='/usr/local/bin/xups.sh'
+alias xups='/usr/local/bin/xups2/xups.sh'
+
+echo "alias xups='/usr/local/bin/xups2/xups.sh'" >> ~/.bashrc
+
+echo "instalando..."
+
+sleep 5
 
 source ~/.bashrc
+
+echo "instalado!".\n" digite xups para iniciar. "
