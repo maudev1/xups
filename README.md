@@ -1,9 +1,11 @@
 # xups
-Este projeto permite interagir com o assistente de IA do GROQ diretamente pelo terminal. Com ele, é possível enviar perguntas, comandos e receber respostas em tempo real, tornando o uso da API prático e eficiente para desenvolvedores e usuários que preferem interfaces de linha de comando.
-Principais Funcionalidades:
+Este projeto oferece uma interface de linha de comando para interagir diretamente com o assistente de IA da GROQ. Ele permite enviar perguntas e comandos via terminal e receber respostas em tempo real, proporcionando uma experiência prática, rápida e eficiente — ideal para desenvolvedores e usuários que preferem trabalhar no terminal.
 
-Comunicação com o GROQ via terminal.
-Respostas em tempo real.
-Integração leve e simples de configurar.
+Principais funcionalidades:
+Comunicação direta com o assistente da GROQ via terminal
 
-Ideal para automações e fluxos de trabalho baseados em texto.
+Respostas em tempo real
+
+Integração leve, rápida de configurar e fácil de usar
+
+Perfeito para automações e fluxos de trabalho baseados em texto
