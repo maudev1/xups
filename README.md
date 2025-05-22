@@ -1,4 +1,4 @@
-# xups
+# XAMPS
 
 ---
 
@@ -33,6 +33,7 @@ Este projeto oferece uma interface de linha de comando para interagir diretament
 * Integração leve, rápida de configurar e fácil de usar
 * Perfeito para automações e fluxos de trabalho baseados em texto
 
+--- 
 
 ## 🚀 Como instalar e rodar o XAMPS (Assistente via terminal - Linux)
 
@@ -58,21 +59,7 @@ git clone <link-do-repo>
 cd xamps
 ```
 
-3. **Instale o Composer** (se não tiver)
-
-```bash
-php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-php composer-setup.php
-php -r "unlink('composer-setup.php');"
-sudo mv composer.phar /usr/local/bin/composer
-```
-
-Confirme:  
-```bash
-composer -V
-```
-
-4. **Instale as dependências**
+3. **Instale as dependências**
 
 ```bash
 composer install
@@ -87,7 +74,7 @@ cp .env.example .env
 Abra o `.env` e cole uma chave de API válida da sua conta [groq.com](https://groq.com):
 
 ```env
-GROQ_API_KEY=sua-chave-aqui
+groq_token=sua-chave-aqui
 ```
 
 6. **Rode o assistente**
@@ -122,13 +109,30 @@ git clone <repo-link>
 cd xamps
 ```
 
-3. **Install Composer** (if you don't have it)
+3. **Install dependencies**
 
 ```bash
-php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-php composer-setup.php
-php -r "unlink('composer-setup.php');"
-sudo mv composer.phar /usr/local/bin/composer
+composer install
 ```
+
+5. **Configure the `.env` file**
+
+```bash
+cp .env.example .env
+```
+
+Open `.env` and paste a valid API key from your [groq.com](https://groq.com) account:
+
+```env
+groq_token=your-key-here
+```
+
+6. **Run the assistant**
+
+```bash
+./xamps.sh
+```
+
+✅ Done! XAMPS will start and you can use it directly from the terminal.
 
 
