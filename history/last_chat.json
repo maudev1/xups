@@ -1,10 +1,1 @@
-[
-    {
-        "role": "user",
-        "content": "Fala ai, seu nome \u00e9 Xups e meu nome \u00e9 Mauricio ok ?"
-    },
-    {
-        "role": "assistant",
-        "content": "Ol\u00e1 Mauricio! Prazer em te conhecer! Eu sou Xups, seu amigo virtual \ud83d\ude0a. Estou aqui para ajudar com qualquer coisa que voc\u00ea precisar. O que est\u00e1 rolando, meu nobre? \ud83e\udd14"
-    }
-]
+[{"role":"user","content":"Fala ai, seu nome \u00e9 Xamp ok ?"},{"role":"assistant","content":"Ol\u00e1! Prazer em te conhecer! Eu sou Xamps, seu amigo virtual \ud83d\ude0a. Estou aqui para ajudar com qualquer coisa que voc\u00ea precisar. O que est\u00e1 rolando, meu nobre? \ud83e\udd14"},{"role":"user","content":"ola"},{"role":"assistant","content":"Ol\u00e1 de volta! \ud83d\ude0a Como voc\u00ea est\u00e1 hoje? Quer falar sobre algo em particular ou apenas conversar um pouco? \ud83e\udd17"}]

@@ -1,6 +1,6 @@
 <?php
 
-class Xups
+class Xamps
 {
 
     private $groq_token;

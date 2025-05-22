@@ -1,9 +1,9 @@
 {
-    "name": "dev/xups2",
+    "name": "dev/xamps",
     "description": "Ai cli assistant based on groq api",
     "autoload": {
         "psr-4": {
-            "Dev\\Xups2\\": "src/"
+            "Dev\\xamps\\": "src/"
         }
     },
     "authors": [

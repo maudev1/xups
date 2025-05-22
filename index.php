@@ -2,7 +2,7 @@
 
 require_once('vendor/autoload.php');
 require_once('classes/PhpEnviroment.php');
-require_once('classes/Xups.php');
+require_once('classes/Xamps.php');
 
 
 $environments = new PhpEnviroment();
@@ -19,7 +19,7 @@ if (count($argv) > 0) {
         
         if ($text != '') {  
 
-            $xups = new Xups();
+            $xups = new Xamps();
 
             echo "\e[33m".$xups->messaging($text)."\e[0m\n"; exit;
 

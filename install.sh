@@ -2,13 +2,13 @@
 
 cd ..
 
-sudo cp -r xups2 /usr/local/bin/
+sudo cp -r xamps /usr/local/bin/
 
-sudo chmod +x "/usr/local/bin/xups2/xups.sh"
+sudo chmod +x "/usr/local/bin/xamps/xamps.sh"
 
-alias xups='/usr/local/bin/xups2/xups.sh'
+alias xamps='/usr/local/bin/xamps/xamps.sh'
 
-echo "alias xups='/usr/local/bin/xups2/xups.sh'" >> ~/.bashrc
+echo "alias xamps='/usr/local/bin/xamps/xamps.sh'" >> ~/.bashrc
 
 echo "instalando..."
 
@@ -16,4 +16,4 @@ sleep 5
 
 source ~/.bashrc
 
-echo "instalado!".\n" digite xups para iniciar. "
+echo "instalado!".\n" digite xamps para iniciar. "
