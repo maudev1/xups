@@ -33,3 +33,102 @@ Este projeto oferece uma interface de linha de comando para interagir diretament
 * Integração leve, rápida de configurar e fácil de usar
 * Perfeito para automações e fluxos de trabalho baseados em texto
 
+
+## 🚀 Como instalar e rodar o XAMPS (Assistente via terminal - Linux)
+
+### 🇧🇷 Passo a passo (Português)
+
+1. **Instale o PHP 8.2**  
+No terminal, rode:
+
+```bash
+sudo apt update
+sudo apt install php8.2 php8.2-cli php8.2-mbstring php8.2-xml php8.2-curl php8.2-zip unzip
+```
+
+Confirme a instalação:  
+```bash
+php -v
+```
+
+2. **Clone o repositório** (se ainda não fez)
+
+```bash
+git clone <link-do-repo>
+cd xamps
+```
+
+3. **Instale o Composer** (se não tiver)
+
+```bash
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+sudo mv composer.phar /usr/local/bin/composer
+```
+
+Confirme:  
+```bash
+composer -V
+```
+
+4. **Instale as dependências**
+
+```bash
+composer install
+```
+
+5. **Configure o arquivo `.env`**
+
+```bash
+cp .env.example .env
+```
+
+Abra o `.env` e cole uma chave de API válida da sua conta [groq.com](https://groq.com):
+
+```env
+GROQ_API_KEY=sua-chave-aqui
+```
+
+6. **Rode o assistente**
+
+```bash
+./xamps.sh
+```
+
+✅ Pronto! O XAMPS vai iniciar e já pode ser usado direto do terminal.
+
+---
+
+### 🇺🇸 Step by step (English)
+
+1. **Install PHP 8.2**  
+In the terminal, run:
+
+```bash
+sudo apt update
+sudo apt install php8.2 php8.2-cli php8.2-mbstring php8.2-xml php8.2-curl php8.2-zip unzip
+```
+
+Confirm the installation:  
+```bash
+php -v
+```
+
+2. **Clone the repository** (if you haven't yet)
+
+```bash
+git clone <repo-link>
+cd xamps
+```
+
+3. **Install Composer** (if you don't have it)
+
+```bash
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+sudo mv composer.phar /usr/local/bin/composer
+```
+
+
